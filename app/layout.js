@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
         </header>
 
         {/* Main content takes available space */}
-        <main className="container mx-auto py-6 flex-grow">{children}</main>
+        <main className="container mx-auto py-6 flex-grow ">{children}</main>
 
         {/* Footer sticks at bottom */}
         <footer className="bg-gray-800 text-white text-center p-4 fixed bottom-0 left-0 w-full">

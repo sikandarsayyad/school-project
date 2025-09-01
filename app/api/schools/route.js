@@ -26,7 +26,7 @@ export async function POST(req) {
       await writeFile(filePath, buffer);
     }
 
-    await db.query(`USE schooldb`);
+    // await db.query(`USE schooldb`);
 
     await db.query(
       "INSERT INTO schools (name, address, city, state, contact, email_id, image) VALUES (?, ?, ?, ?, ?, ?, ?)",
@@ -42,7 +42,6 @@ export async function POST(req) {
 
 export async function GET() {
   try {
-     await db.query(`USE schooldb`);
     const [rows] = await db.query("SELECT * FROM schools ORDER BY id DESC");
     return NextResponse.json(rows);
   } catch (err) {
