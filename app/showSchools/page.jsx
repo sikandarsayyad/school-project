@@ -8,7 +8,11 @@ export default function ShowSchools() {
   useEffect(() => {
     fetch("/api/schools")
       .then((res) => res.json())
-      .then((data) => setSchools(data));
+      .then((data) => {
+        // console.log(data); 
+        setSchools(data);
+      })
+      .catch((err) => console.error("Error fetching schools:", err));
   }, []);
 
   return (
@@ -24,7 +28,7 @@ export default function ShowSchools() {
         >
           {school.image && (
             <img
-              src={`/schoolImages/${school.image}`}
+              src={school.image} // Use Base64 directly
               alt={school.name}
               className="w-full h-48 object-cover"
             />
